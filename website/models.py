@@ -4,19 +4,27 @@ from datetime import date
 
 
 class Grave(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    middle_name = models.CharField(max_length=30, null=True, blank=True)
-    birth = models.DateField(null=False, default=date(2000, 1, 1))
-    death = models.DateField(null=False, default=date(2000, 1, 1))
-    veteran = models.CharField(max_length=10, null=True, blank=True)
-    headstone =  models.CharField(max_length=10, null=True, blank=True)
-    reference = models.CharField(max_length=10, null=True, blank=True)
-    Grid = models.IntegerField(null=True, blank=True)
-    Ward = models.IntegerField(null=True, blank=True)
-    Block = models.IntegerField(null=True, blank=True)
-    Lot = models.IntegerField(null=True, blank=True)
-    Plot = models.IntegerField(null=True, blank=True)
+    #Reference = models.TextField(null=True) #CharField(max_length=10, null=True, blank=True)
+    #Column = models.TextField(null=True)
+    #Row = models.TextField(null=True) #CharField(max_length=10, null=True, blank=True)
+    #Grid = models.TextField(null=True) #IntegerField(null=True, blank=True)
+    
+    #Ward = models.IntegerField(null=True, blank=True)
+    #Block = models.IntegerField(null=True, blank=True)
+    #Lot = models.IntegerField(null=True, blank=True)
+    
+    #Plot = models.TextField(null=True)
+    
+    Veteran = models.TextField(null=True)
+    #Headstone =  models.TextField(null=True)
+    
+    Birth = models.TextField() #DateField(null=False, default=date(2000, 1, 1))
+    Death = models.TextField() #DateField(null=False, default=date(2000, 1, 1))
+    
+    FirstName = models.TextField(null=True)
+    LastName = models.TextField(null=True)
+    #middle_name = models.CharField(max_length=30, null=True, blank=True)
+    
     
     class Meta:
         verbose_name_plural = "graves"

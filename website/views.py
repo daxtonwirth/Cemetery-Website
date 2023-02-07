@@ -33,7 +33,7 @@ class SearchResultsView(ListView):
         query = self.request.GET.get("q")
         #query1 = self.request.GET.get("q1")
         object_list = Grave.objects.filter(
-            first_name__icontains=query 
+            FirstName__icontains=query 
             #last_name__icontains=query1
         )
         return object_list
