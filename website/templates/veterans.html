@@ -1,0 +1,15 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+    {% for item in all %}
+        {% if item.veteran == "1" %}
+            <p>{{ item.first_name  }} {{ item.last_name  }} <p>
+        {% endif %}
+
+    {% endfor %}
+
+{% endblock %}

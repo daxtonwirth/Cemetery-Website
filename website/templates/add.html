@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Add{% endblock %}
+
+{% block content %}
+<h1>Add people to cemetery</h1>
+
+<form method="POST" action="{% url 'add' %}">
+  {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">First Name</label>
+      <input type="text" class="form-control" placeholder="First Name" name="first_name">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Middle Name/Initial</label>
+      <input type="text" class="form-control" placeholder="Last Name" name="middle_name">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Last Name</label>
+      <input type="text" class="form-control" placeholder="Last Name" name="last_name">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Veteran</label>
+      <input type="text" class="form-control" placeholder="veteran" name="veteran">
+    </div>
+    
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Date of Birth</label>
+      <input type="date" class="form-control" name="birth">
+      
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Date of Death</label>
+      <input type="date" class="form-control"  name="death">
+      
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+{% endblock %}

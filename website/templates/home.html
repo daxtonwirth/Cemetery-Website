@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<header><h1 style="color: #32CD32;">Rigby Pioneer Cemetery</h1></header> 
+<main> 
+    <img src="https://images.findagrave.com/photos/2004/248/CEM669_109443279368.jpg" alt="Cemetery Image"> 
+    <p>Our cemetery is a peaceful and serene place where loved ones can be remembered and honored. We offer a variety of burial options, including traditional in-ground burials, cremation services, and more. Our grounds are well-maintained and provide a beautiful setting for visitors.</p> 
+    </main> 
+
+    <form action="{% url 'search' %}" method="get">
+      <input name="q" type="text" placeholder="First">
+      
+    </form>
+
+    <div class="container">
+        <div class="card">
+          <h2>About Us</h2>
+          <p>Green Cemetery is a peaceful and serene final resting place for your loved ones. Our beautifully landscaped grounds and peaceful atmosphere provide a comforting and dignified setting for those who have passed.</p>
+        </div>
+        <div class="card">
+          <h2>Services</h2>
+          <ul>
+            <li>Burial Plots</li>
+            <li>Cremation Services</li>
+            <li>Memorialization Options</li>
+            <li>Pre-planning Assistance</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>Location</h2>
+          <p>Green Cemetery is located at 123 Cemetery Lane, Anytown USA. We are open to the public every day from 8am to 6pm.</p>
+        </div>
+      </div>
+    
+      {% for item in all %}
+        <p>{{ item.first_name  }} {{ item.last_name  }} <p>
+      {% endfor %}
+
+    <footer> 
+    Copyright © 2023 Our Cemetery 
+    </footer> 
+{% endblock %}
