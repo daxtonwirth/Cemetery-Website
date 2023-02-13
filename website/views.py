@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView
 from .models import Grave
 from .forms import GraveForm
+from django.contrib import messages
+from django.db.models import Q 
+
 
 def home(request):
     all_people = Grave.objects.all
@@ -16,7 +19,12 @@ def add(request):
         form = GraveForm(request.POST or None)
         if form.is_valid():
             form.save()
-        return render(request, 'add.html', {})
+            messages.success(request, ("Added Successfully"))
+            return redirect('home')
+        else:
+            #FirstName = request.POST["FirstName"]
+            messages.success(request, ("Error, please try again"))
+            render(request, 'add.html', {})
 
     else:
         return render(request, 'add.html', {})
@@ -31,9 +39,6 @@ class SearchResultsView(ListView):
 
     def get_queryset(self):  
         query = self.request.GET.get("q")
-        #query1 = self.request.GET.get("q1")
-        object_list = Grave.objects.filter(
-            FirstName__icontains=query 
-            #last_name__icontains=query1
-        )
+        term = query.split()
+        object_list = Grave.objects.filter(Q(FirstName__icontains=term[0]) & Q(LastName__icontains=term[1]))
         return object_list

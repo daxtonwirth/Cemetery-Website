@@ -3,42 +3,25 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<header><h1 style="color: #32CD32;">Rigby Pioneer Cemetery</h1></header> 
-<main> 
-    <img src="https://images.findagrave.com/photos/2004/248/CEM669_109443279368.jpg" alt="Cemetery Image"> 
-    <p>Our cemetery is a peaceful and serene place where loved ones can be remembered and honored. We offer a variety of burial options, including traditional in-ground burials, cremation services, and more. Our grounds are well-maintained and provide a beautiful setting for visitors.</p> 
-    </main> 
-
+<div class="text-center">
+<header><h1>Rigby Pioneer Cemetery</h1></header><br/>
+<img src="https://images.findagrave.com/photos/2004/248/CEM669_109443279368.jpg" alt="Cemetery Image"><br/><br/>
+  
+<h3>Search an Ancestor</h3><br/>
     <form action="{% url 'search' %}" method="get">
-      <input name="q" type="text" placeholder="First">
-      
-    </form>
+      <input name="q" type="text" placeholder="First & Last">
+    </form><br/><br/>
 
-    <div class="container">
-        <div class="card">
-          <h2>About Us</h2>
-          <p>Green Cemetery is a peaceful and serene final resting place for your loved ones. Our beautifully landscaped grounds and peaceful atmosphere provide a comforting and dignified setting for those who have passed.</p>
-        </div>
-        <div class="card">
-          <h2>Services</h2>
-          <ul>
-            <li>Burial Plots</li>
-            <li>Cremation Services</li>
-            <li>Memorialization Options</li>
-            <li>Pre-planning Assistance</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Location</h2>
-          <p>Green Cemetery is located at 123 Cemetery Lane, Anytown USA. We are open to the public every day from 8am to 6pm.</p>
-        </div>
-      </div>
-    
-      {% for item in all %}
-        <p>{{ item.FirstName  }} {{ item.LastName  }} <p>
-      {% endfor %}
+    <a href="veterans"><h3>View Veterans</h3></a>
+    <a href="add"><h3>Add People</h3></a><br/>
 
-    <footer> 
-    Copyright © 2023 Our Cemetery 
-    </footer> 
+    <h4>Cemetery Information:</h4>
+    <p>4023 Ririe Hwy, Rigby, ID 83442</p>
+    <p>(208) 745-8447</p>
+
+</div>
+    <!--{% for item in all %}
+      <p>{{ item.FirstName  }} {{ item.LastName  }} <p>
+    {% endfor %}-->
+
 {% endblock %}
