@@ -24,4 +24,37 @@
       <p>{{ item.FirstName  }} {{ item.LastName  }} <p>
     {% endfor %}-->
 
+
+
+    <div id="map"></div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQZ0MOCrRpEhYwjgsXisPvJ98Ajn0fFAw"></script>
+    <script>
+      function initMap() {
+        var myLatLng = {lat: {{ lat }}, lng: {{ lng }}};
+  
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          //mapTypeId: 'satellite',
+          mapTypeControl: true,
+          mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+            mapTypeIds: ['roadmap', 'satellite'],
+            position: google.maps.ControlPosition.TOP_RIGHT
+          },
+          labels: true,
+          center: myLatLng
+        });
+  
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Cemetery'
+        });
+      }
+  
+      initMap();
+    </script>
+
+
 {% endblock %}
