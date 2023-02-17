@@ -30,4 +30,4 @@ class Grave(models.Model):
         verbose_name_plural = "graves"
     
     def __str__(self):
-        return self.first_name + ' ' + self.last_name
+        return self.FirstName + ' ' + self.LastName

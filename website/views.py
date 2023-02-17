@@ -39,6 +39,10 @@ class SearchResultsView(ListView):
 
     def get_queryset(self):  
         query = self.request.GET.get("q")
-        term = query.split()
-        object_list = Grave.objects.filter(Q(FirstName__icontains=term[0]) & Q(LastName__icontains=term[1]))
+        if " " in query:
+            term = query.split()
+            object_list = Grave.objects.filter(Q(FirstName__icontains=term[0]) & Q(LastName__icontains=term[1]))
+        else:
+            term = query
+            object_list = Grave.objects.filter(Q(FirstName__icontains=term) | Q(LastName__icontains=term))
         return object_list
