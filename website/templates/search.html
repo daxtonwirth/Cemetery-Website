@@ -4,12 +4,12 @@
 
 {% block content %}
 
-<ul>
+<div class="list-group">
     {% for grave in object_list %}
-      <li>
-        {{ grave.FirstName }}, {{ grave.LastName }}
+      <li class="list-group-item">
+        {{ grave.Occupant  }} | {{ grave.Birth }} | {{ grave.Death }} | {{ grave.Grid  }}
       </li>
     {% endfor %}
-  </ul>
+    </div>
 
 {% endblock %}

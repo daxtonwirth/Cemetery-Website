@@ -4,6 +4,6 @@ from .models import Grave
 
 
 class GraveAdmin(admin.ModelAdmin):
-    list_display = ("FirstName", "LastName","Birth","Death")
+    list_display = ("Occupant","Birth","Death", "Grid")
 
 admin.site.register(Grave, GraveAdmin)

@@ -4,12 +4,11 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-
+<div class="list-group">
     {% for item in all %}
         {% if item.Veteran == "X" %}
-            <p>{{ item.FirstName  }} {{ item.LastName  }} <p>
+            <li class="list-group-item">{{ item.Occupant  }} | {{ item.Birth }} | {{ item.Death }} | {{ item.Grid  }}</li>
         {% endif %}
-
     {% endfor %}
-
+</div>
 {% endblock %}

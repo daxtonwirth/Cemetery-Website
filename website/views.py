@@ -6,10 +6,6 @@ from django.contrib import messages
 from django.db.models import Q 
 
 
-#def home(request):
-#    all_people = Grave.objects.all
-#    return render(request, 'home.html', {'all':all_people})
-
 def veterans(request):
     all_people = Grave.objects.all
     return render(request, 'veterans.html', {'all':all_people})
@@ -29,9 +25,6 @@ def add(request):
     else:
         return render(request, 'add.html', {})
     
-#def search(request):
-#    all_people = Grave.objects.all
-#    return render(request, 'search.html', {'all':all_people})
 
 class SearchResultsView(ListView):
     model = Grave
@@ -41,10 +34,10 @@ class SearchResultsView(ListView):
         query = self.request.GET.get("q")
         if " " in query:
             term = query.split()
-            object_list = Grave.objects.filter(Q(FirstName__icontains=term[0]) & Q(LastName__icontains=term[1]))
+            object_list = Grave.objects.filter(Q(Occupant__icontains=term[0]) & Q(Occupant__icontains=term[1]))
         else:
             term = query
-            object_list = Grave.objects.filter(Q(FirstName__icontains=term) | Q(LastName__icontains=term))
+            object_list = Grave.objects.filter(Q(Occupant__icontains=term) | Q(Occupant__icontains=term))
         return object_list
     
     
